@@ -1,5 +1,5 @@
 import createAuth0Client from '@auth0/auth0-spa-js';
-import { setUser, getUser } from './accessToken';
+import { setAccessToken } from './accessToken';
 
 export const AuthState = {
     user: null,
@@ -44,9 +44,8 @@ export const useAuth0 = (state: any) => {
 
     const login = async () => {
         try {
-            setUser(state);
+            setAccessToken(state);
             console.log("login")
-            console.log(state)
             await state.auth0.loginWithPopup();
             await handleStateChange();
             return await state;
