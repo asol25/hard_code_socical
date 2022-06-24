@@ -1,6 +1,7 @@
 import React from "react";
 import { NewsFeed_Content } from "../Atom/NewsFeed_Content";
 import { NewsFeed_Title } from "../Atom/NewsFeed_Title";
+import { NewsFee_Comment } from "../Atom/NewsFee_Comment";
 
 interface Newsfeed {
 
@@ -12,9 +13,10 @@ export const Newsfeed: React.FC = () => {
     }
     return (
         <section className="section section__newsfeed">
-            <div className="section__newsfeed__list">
+            <div className="container rounded-lg border">
                 <NewsFeed_Title></NewsFeed_Title>
-               <NewsFeed_Content></NewsFeed_Content>
+                <NewsFeed_Content></NewsFeed_Content>
+                <NewsFee_Comment></NewsFee_Comment>
             </div>
         </section>
     )

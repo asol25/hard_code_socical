@@ -1,10 +1,12 @@
 .layout {
     display: flex;
-    justify-content: space-around;
-    justify-content: baseline;
+    justify-content: center;
+    column-gap: 2em;
+    .main {
+        width: 35%;
+    }
 
+    .aside {
+        width: 35%;
+    }
 }
-.main {
-    width: 35%;
-}
-@import './Atom/NewsFeed'
