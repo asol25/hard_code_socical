@@ -7,9 +7,8 @@ import { Server } from "socket.io";
 import v1ApiRouter from './routers/v1ApiRouters'
 import 'dotenv/config'
 import path from 'path';
-import db from './db';
+import db from './data-source.ts';
 const app = express();
-const PORT = 3333;
 const httpServer = createServer(app);
 
 const io = new Server(httpServer, {

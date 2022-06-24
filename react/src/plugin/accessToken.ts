@@ -1,8 +1,8 @@
-let user: Object = {};
+let accountToken: Object = {};
 
 export const setAccessToken = (s: Object) => {
-    return user = s
+    return accountToken = s
 }
 export const getAccessToken = (): Object => {
-    return user;
+    return accountToken;
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { Header } from '../features/Header';
-import './Main.scss'
+import { Header } from './Header'
 interface Layout {
 
 }
@@ -9,10 +8,7 @@ interface Layout {
 export const Layout: React.FC = () => {
     return (
         <div>
-            <header className="header">
-                <Header></Header>
-            </header>
-
+            <Header></Header>
             <Outlet />
         </div>
     )
