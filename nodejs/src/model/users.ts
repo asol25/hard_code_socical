@@ -10,10 +10,10 @@ const userSchema = new Schema({
         required: true,
         lowercase: true,
         unique: true,
-        validate: {
-            validateEmail: [isEmail, 'invalid email'],
-            message: 'Email validation failed'
-        },
+        // validate: {
+        //     validateEmail: [isEmail, 'invalid email'],
+        //     // message: 'Email validation failed'
+        // },
     },
 
     username: {

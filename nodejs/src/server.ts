@@ -18,12 +18,14 @@ const io = new Server(httpServer, {
 });
 require('dotenv').config({ path: path.resolve(__dirname, 'variable.env') })
 db();
+
 app.use(helmet());
 app.use(morgan('tiny'))
 app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use('/api', v1ApiRouter);
+
 httpServer.listen(process.env.PORT_SERVER, () => {
   console.log(`⚡️[server]: Server is running at ${process.env.PORT_SERVER}`);
 });
