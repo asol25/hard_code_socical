@@ -10,7 +10,6 @@ export const Suggestions: React.FC = () => {
     const handleSubmitRequestToAuth = (event: React.FormEvent<HTMLButtonElement>) => {
         event.preventDefault();
         useAuth0(AuthState).login();
-        console.log('getAccessToken: ' + getAccessToken())
     }
     return (
         <section className="hidden sm:block">

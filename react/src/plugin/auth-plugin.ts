@@ -34,15 +34,24 @@ export const useAuth0 = (state: any) => {
             state.isAuthenticated = !!(await state.auth0.isAuthenticated());
             state.user = await state.auth0.getUser();
             state.loading = false;
-            setTokenToSever({
-                method: "POST",
-                url: "http://localhost:4040/api/authentication/login",
-                data: JSON.stringify(state)
-            });
-            setAccessToken(state);
+            // setTokenToSever({
+            //     method: "POST",
+            //     url: "http://localhost:4040/api/authentication/login",
+            //     data: JSON.stringify(state.user)
+            // });
         } catch (error) {
             console.log("Error: " + error);
         }
+    }
+
+    const handleToken = async () => {
+        await setAccessToken(state);
+        await setTokenToSever({
+            method: "POST",
+            url: "http://localhost:4040/api/authentication/login",
+            data: JSON.stringify(state.user)
+        });
+        return localStorage.setItem("sessionName",JSON.stringify(state.user));
     }
 
     const initAuth = () => {
@@ -66,6 +75,7 @@ export const useAuth0 = (state: any) => {
             console.log("login")
             await state.auth0.loginWithPopup();
             await handleStateChange();
+            await handleToken();
             return await state;
         } catch (error) {
             console.log("login: ", error);

@@ -4,20 +4,16 @@ import { Schema } from "mongoose";
 const userSchema = new Schema({
     email: {
         type: String,
-        required: true,
-        lowercase: true,
         unique: true,
     },
 
     nickname: {
         type: String,
         trim: true,
-        required: true,
     },
 
     updated_at: {
         type: Date,
-        required: true,
     },
 
     token: {
@@ -27,7 +23,6 @@ const userSchema = new Schema({
 
     picture: {
         type: String,
-        required: true,
         trim: false,
     },
 
