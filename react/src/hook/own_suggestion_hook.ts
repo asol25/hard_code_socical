@@ -1,13 +1,10 @@
 import React, { useEffect } from "react";
-import { getAccessToken } from "../plugin/accessToken";
-import { suggestions } from '../types/type';
-import { useAuth0, AuthState } from "../plugin/auth-plugin";
+import { suggested_profile } from '../types/type';
 const own_suggestion_hook = () => {
-    const [ownSuggestion, setOwnSuggestion] = React.useState<suggestions | undefined>(undefined);
+    const [ownSuggestion, setOwnSuggestion] = React.useState<suggested_profile | undefined>(undefined);
 
     useEffect(() => {
-        const userOwn = localStorage.getItem("sessionName");
-        const { nickname, picture } = JSON.parse(userOwn || "");
+        const { nickname, picture } = JSON.parse(localStorage.getItem("sessionName") || "");
         setOwnSuggestion({ nickname, picture });
     }, [])
 

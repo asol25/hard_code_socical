@@ -4,5 +4,6 @@ export interface suggestions {
 }
 
 export interface suggested_profile {
-
+    nickname: string;
+    picture: string;
 }
