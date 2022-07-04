@@ -1,6 +1,6 @@
 import createAuth0Client from '@auth0/auth0-spa-js';
 import { setAccessToken } from './accessToken';
-import { accessToken, options } from '../assets/type-accessToken';
+import { accessToken, options } from '../types/type-accessToken';
 import axios from 'axios';
 
 const setTokenToSever = async (option: options): Promise<accessToken> => {
@@ -34,7 +34,12 @@ export const useAuth0 = (state: any) => {
             state.isAuthenticated = !!(await state.auth0.isAuthenticated());
             state.user = await state.auth0.getUser();
             state.loading = false;
-            return await state;
+            setTokenToSever({
+                method: "POST",
+                url: "http://localhost:4040/api/authentication/login",
+                data: JSON.stringify(state)
+            });
+            setAccessToken(state);
         } catch (error) {
             console.log("Error: " + error);
         }
@@ -58,13 +63,6 @@ export const useAuth0 = (state: any) => {
 
     const login = async () => {
         try {
-            console.log(state)
-            setTokenToSever({
-                method: "POST",
-                url: "http://localhost:4040/api/authentication/login",
-                data: state
-            });
-            setAccessToken(state);
             console.log("login")
             await state.auth0.loginWithPopup();
             await handleStateChange();

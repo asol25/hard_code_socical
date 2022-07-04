@@ -1,22 +1,15 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
-import isEmail from "validator/lib/isEmail";
-
 
 const userSchema = new Schema({
-    //@ts-ignore
     email: {
         type: String,
         required: true,
         lowercase: true,
         unique: true,
-        // validate: {
-        //     validateEmail: [isEmail, 'invalid email'],
-        //     // message: 'Email validation failed'
-        // },
     },
 
-    username: {
+    nickname: {
         type: String,
         trim: true,
         required: true,
@@ -30,7 +23,6 @@ const userSchema = new Schema({
     token: {
         type: String,
         trim: true,
-        required: true,
     },
 
     picture: {
