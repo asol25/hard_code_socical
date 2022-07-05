@@ -5,7 +5,11 @@ const own_suggestion_hook = () => {
 
     useEffect(() => {
         const { nickname, picture } = JSON.parse(localStorage.getItem("sessionName") || "");
-        setOwnSuggestion({ nickname, picture });
+        if (nickname || picture) {
+            setOwnSuggestion({ nickname, picture });
+        } else {
+            console.log("You must provide a nickname and picture before");
+        }
     }, [])
 
     return {

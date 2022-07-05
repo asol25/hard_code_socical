@@ -1,20 +1,6 @@
 import createAuth0Client from '@auth0/auth0-spa-js';
 import { setAccessToken } from './accessToken';
-import { accessToken, options } from '../types/type-accessToken';
-import axios from 'axios';
-
-const setTokenToSever = async (option: options): Promise<accessToken> => {
-    const options = {
-        method: option.method,
-        url: option.url,
-        data: option.data,
-        headers: { 'Content-Type': 'application/json' },
-    }
-
-    const response = await axios.request(options);
-    return response.data;
-}
-
+import { fetch_services_server } from './fetch-services-server';
 export const AuthState = {
     user: null,
     loading: false,
@@ -46,7 +32,7 @@ export const useAuth0 = (state: any) => {
 
     const handleToken = async () => {
         await setAccessToken(state);
-        await setTokenToSever({
+        await fetch_services_server({
             method: "POST",
             url: "http://localhost:4040/api/authentication/login",
             data: JSON.stringify(state.user)

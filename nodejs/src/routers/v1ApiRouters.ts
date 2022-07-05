@@ -3,6 +3,7 @@ import AuthenticationRouter from "../module/auth/router";
 // import auth from "../middleware/auth/authz.middleware";
 import rateLimit from "../middleware/limit/rateLimit";
 import resetPasswordSpeedLimiter from "../middleware/limit/slowdown"
+import SuggestionsRouter from '../module/suggestion/router';
 const v1ApiRouter = Router();
 
 v1ApiRouter.use("/", rateLimit, resetPasswordSpeedLimiter, (req: Request, res: Response, next: NextFunction) => {
@@ -14,4 +15,5 @@ v1ApiRouter.use("/", rateLimit, resetPasswordSpeedLimiter, (req: Request, res: R
 });
 
 v1ApiRouter.use("/authentication", AuthenticationRouter);
+v1ApiRouter.use("/suggestions", SuggestionsRouter);
 export default v1ApiRouter;

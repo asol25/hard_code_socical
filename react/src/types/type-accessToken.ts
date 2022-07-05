@@ -1,5 +1,4 @@
 export interface accessToken {
-    setTokenToServer: () => Promise<Object>;
 }
 
 export interface options {
