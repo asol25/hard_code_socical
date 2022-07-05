@@ -9,7 +9,7 @@ AuthenticationRouter.post('/login', async (req: Request, res: Response) => {
         const user = await userModel.findOne({ "email": req.body.email });
         !user ? new userModel(req.body).save() : 0;
         user.token = await sendRefreshToken(user);
-        return res.status(200).json(user);
+        return res.status(200).json(user);  
     } catch (error) {
         console.error('login error: ' + error || error?.response?.message);
         return res.status(500).send({ 'login error: ': error.message });
