@@ -1,5 +1,5 @@
 import React from 'react'
-import friend_suggestion_hook from '../../hook/friend_suggestion_hook'
+import friend_suggestion_hook from '../../hook/suggestion/friend_suggestion_hook'
 import { Show_users } from './show_users';
 
 export const Friend_suggestion: React.FC = () => {

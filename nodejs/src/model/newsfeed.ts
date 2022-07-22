@@ -2,9 +2,14 @@ import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
 const NewsfeedSchema = new Schema({
-    username: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "user"
+    nickname: {
+        type: String,
+        required: true,
+    },
+
+    picture: {
+        type: String,
+        required: true,
     },
 
     images: {

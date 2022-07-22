@@ -1,5 +1,5 @@
 import React from 'react'
-import own_suggestion_hook from '../../hook/own_suggestion_hook';
+import own_suggestion_hook from '../../hook/suggestion/own_suggestion_hook';
 import { Show_users } from './show_users';
 export const Own_suggestion: React.FC = () => {
     const { ownSuggestion } = own_suggestion_hook();

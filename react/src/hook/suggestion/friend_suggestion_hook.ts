@@ -1,6 +1,6 @@
 import React from 'react';
-import { suggested_profile } from '../types/type';
-import { fetch_services_server } from '../plugin/fetch-services-server';
+import { suggested_profile } from '../../types/type';
+import { fetch_services_server } from '../../plugin/fetch-services-server';
 import axios from 'axios';
 import { AxiosRequestConfig } from 'axios';
 const friend_suggestion_hook = () => {
